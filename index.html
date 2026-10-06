@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Jessica Tisby | Jacksonville Realtor</title>
+<meta name="description" content="Jacksonville Jess helps buyers and sellers across Northeast Florida move with clarity and confidence, backed by Momentum Realty.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=Rouge+Script&display=swap" rel="stylesheet">
+<style>
+/* Layout: Domaine Framer realtor template — white editorial page, script-name accents, full-height cutout hero, taupe + near-black bands */
+:root{
+  --ink:#131916; --text:#303030; --mut:#666666; --line:#e7e2d8;
+  --paper:#ffffff; --sand:#f7f5f0; --taupe:#6b655c; --taupe-card:#7a726a;
+  --night:#131916; --night-card:#2a2a2a; --black:#0a0a0a; --gold:#d5983d;
+  --sans:"Inter Tight","Inter Display",system-ui,-apple-system,Segoe UI,sans-serif;
+  --script:"Rouge Script","Brush Script MT",cursive;
+  --ease:cubic-bezier(.22,1,.36,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:var(--paper);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1360px;margin:0 auto;padding-inline:clamp(16px,5vw,78px)}
+.script{font-family:var(--script);color:var(--gold);font-weight:400;letter-spacing:0}
+h1,h2,h3{font-weight:400;color:var(--ink);text-wrap:balance}
+h1{font-size:clamp(46px,5.6vw,80px);line-height:1.05;letter-spacing:-.05em}
+h2{font-size:clamp(36px,3.9vw,56px);line-height:1.1;letter-spacing:-.02em}
+h1 .script{font-size:1em;letter-spacing:-.02em;padding-right:.08em}
+h2 .script{font-size:1.15em}
+
+/* concept banner */
+.banner{background:var(--black);color:#e9e4da;font-size:12px;text-align:center;padding:6px 16px;letter-spacing:.02em}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:24px}
+.logo{font-family:var(--script);color:var(--gold);font-size:34px;line-height:1;white-space:nowrap}
+.links{display:flex;gap:18px;font-size:13px;color:var(--ink)}
+.links a{position:relative}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.links a:hover::after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--btn,var(--taupe));color:#fff;font-size:15px;padding:9px 14px 9px 15px;border-radius:8px;transition:background .3s,transform .3s var(--ease)}
+.btn svg{width:14px;height:14px;transition:transform .3s var(--ease)}
+.btn:hover{background:var(--btn-hover,#57524b)}
+.btn:hover svg,.link-arrow:hover svg{transform:translateX(4px)}
+.link-arrow{display:inline-flex;align-items:center;gap:10px;font-size:15px}
+.link-arrow svg{width:14px;height:14px;transition:transform .3s var(--ease)}
+
+.nav-r{display:flex;align-items:center;gap:10px}
+.menu-btn{display:none;width:40px;height:40px;border:0;border-radius:8px;background:transparent;cursor:pointer;position:relative}
+.menu-btn span{position:absolute;left:10px;right:10px;height:2px;background:var(--ink);border-radius:2px;transition:transform .35s var(--ease),top .35s var(--ease)}
+.menu-btn span:first-child{top:15px}.menu-btn span:last-child{top:23px}
+nav.open .menu-btn span:first-child{top:19px;transform:rotate(45deg)}
+nav.open .menu-btn span:last-child{top:19px;transform:rotate(-45deg)}
+.mmenu{display:none}
+/* hero */
+.hero{position:relative;min-height:min(820px,calc(100vh - 60px));display:flex;align-items:stretch;overflow:hidden;background:var(--paper)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;width:100%}
+.hero-copy{position:relative;z-index:2;padding-block:80px;max-width:640px}
+.hero-copy p{font-size:16px;color:var(--text);max-width:440px;margin:26px 0 22px;line-height:1.5}
+.hero-img{position:absolute;right:clamp(0px,3vw,60px);bottom:0;height:94%;max-height:800px;width:auto;max-width:56%;z-index:1;display:flex;align-items:flex-end;justify-content:center}
+.hero-img img{height:100%;width:auto;object-fit:contain;object-position:bottom;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);mask-image:linear-gradient(90deg,transparent 0,#000 14%)}
+
+
+/* video band (sits just below the hero) */
+.video-band{padding-block:10px 90px;background:var(--paper)}
+.video-frame{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/9;max-height:78vh;width:100%;background:#d9d2c6;transform:scale(var(--vs,1));transform-origin:center top;will-change:transform;box-shadow:0 40px 80px -50px rgba(19,25,22,.55)}
+.video-frame video{width:100%;height:100%;object-fit:cover;display:block}
+.video-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,10,10,.6));pointer-events:none}
+.video-cap{z-index:2}
+.video-cap{position:absolute;left:clamp(16px,3vw,36px);bottom:clamp(16px,3vw,32px);color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.35);font-size:clamp(22px,2.6vw,36px);letter-spacing:-.02em;line-height:1.15;max-width:560px}
+.video-cap .script{font-size:1.25em;display:block;line-height:1;color:var(--video-script,var(--gold))}
+
+/* why */
+.why{background:var(--sand);padding-block:90px 80px}
+.why-top{display:grid;grid-template-columns:1.6fr 1fr;gap:48px;align-items:start;margin-bottom:50px}
+.why-top p{font-size:16px;color:var(--text);max-width:380px;justify-self:end}
+.cards3{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:16px}
+.card{background:#fff;border-radius:16px;padding:30px;box-shadow:0 12px 30px -18px rgba(19,25,22,.25);display:flex;flex-direction:column;justify-content:space-between;min-height:360px;gap:28px}
+.card .big{font-size:clamp(44px,4vw,56px);letter-spacing:-.02em;color:#3a3a3a;line-height:1}
+.card .lbl{font-size:15px;color:var(--text);margin-top:12px;max-width:340px}
+.card h4{font-size:22px;font-weight:400;color:#3a3a3a;margin-bottom:10px}
+.partof{font-size:18px;color:#3a3a3a}
+.wordmark{margin-top:10px;display:inline-flex;flex-direction:column;border:1.5px solid var(--ink);border-radius:10px;padding:10px 14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);line-height:1.35}
+.wordmark b{font-size:18px;letter-spacing:.06em;font-weight:500}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid #444;border-radius:999px;padding:5px 11px;font-size:13px;color:#333;white-space:nowrap}
+.card.dark{background:var(--taupe-card);color:#fff}
+.card.dark .big,.card.dark .lbl{color:#fff}
+.card.dark blockquote{font-size:clamp(19px,1.6vw,22px);line-height:1.35}
+
+/* recent deals + listings rails */
+.deals{padding-block:90px 70px}
+.center{text-align:center}
+.rail-wrap{position:relative;margin-top:40px}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 32px)/3);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.deal{scroll-snap-align:start;min-width:0}
+.deal .ph{position:relative;aspect-ratio:3/2;overflow:hidden;background:linear-gradient(135deg,#e9e3d8,#cfc5b4)}
+.deal .ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.deal:hover .ph img{transform:scale(1.05)}
+.deal .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:10px}
+.deal h3{font-size:20px;letter-spacing:-.01em;color:var(--ink)}
+.deal .price{font-size:14px;color:var(--ink);white-space:nowrap}
+.deal .meta{display:flex;align-items:center;gap:8px;margin-top:4px;font-size:15px;color:#333}
+.deal .tag{font-weight:500}
+.deal .status{position:absolute;top:14px;right:14px;z-index:2;background:rgba(255,255,255,.92);color:var(--ink);font-size:12px;padding:5px 10px;border-radius:999px}
+.ph-text{display:flex;align-items:flex-end;padding:20px;background:linear-gradient(135deg,var(--gold),color-mix(in srgb,var(--gold) 70%,#000))!important}
+.deal:nth-child(even) .ph-text{background:linear-gradient(135deg,var(--taupe),color-mix(in srgb,var(--taupe) 70%,#000))!important}
+.ph-text span{color:#fff;font-size:clamp(28px,2.6vw,40px);letter-spacing:-.02em;line-height:1}
+.ph-text small{display:block;font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin-bottom:8px}
+.deal .court{font-size:11px;color:var(--mut);margin-top:6px}
+.arrows{position:absolute;top:18px;left:18px;display:flex;gap:10px;z-index:3}
+.arrows button{width:38px;height:38px;border-radius:50%;border:0;background:rgba(80,76,70,.55);backdrop-filter:blur(6px);color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .3s,transform .3s var(--ease)}
+.arrows button:hover{background:rgba(60,56,50,.8);transform:scale(1.06)}
+.arrows svg{width:14px;height:14px}
+
+/* about */
+.about{padding-block:60px 100px}
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,90px);align-items:center}
+.about-copy{max-width:470px;justify-self:center}
+.about-copy p{font-size:15px;color:var(--text);margin-top:22px;line-height:1.55}
+.about-photo img{border-radius:12px;width:100%;max-width:450px;aspect-ratio:4/4.4;object-fit:cover;object-position:top}
+.socials{display:flex;justify-content:space-between;max-width:450px;margin-top:14px;padding-inline:10px}
+.socials a{width:38px;height:38px;border-radius:7px;background:var(--gold);color:#fff;display:grid;place-items:center;transition:transform .3s var(--ease)}
+.socials a:hover{transform:translateY(-3px);filter:brightness(.88)}
+.socials svg{width:22px;height:22px}
+
+/* achievements */
+.ach{background:var(--sand);padding-block:100px 120px}
+.ach-list{margin-top:60px;display:grid;gap:14px}
+.ach-row{display:grid;grid-template-columns:auto 1.2fr 1fr auto;gap:24px;align-items:center;padding:14px 18px;border-radius:14px;transition:background .4s var(--ease)}
+.ach-row:hover{background:#fff}
+.ach-ic{width:52px;height:52px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px -12px rgba(213,152,61,.9);transition:transform .5s var(--ease)}
+.ach-ic svg{width:26px;height:26px}
+.ach-row:hover .ach-ic{transform:rotate(-12deg) scale(1.08)}
+.ach-row h4{font-size:clamp(18px,1.6vw,22px);font-weight:400;color:var(--ink)}
+.ach-row .ach-org,.ach-row .d{font-size:17px;color:#333}
+.ach-row .d{text-align:right}
+.ic-star svg{animation:twinkle 2.8s ease-in-out infinite;animation-delay:1.6s}
+@keyframes twinkle{0%,70%,100%{transform:scale(1) rotate(0)}80%{transform:scale(1.25) rotate(18deg)}90%{transform:scale(.95) rotate(-6deg)}}
+.ic-chart rect{transform-origin:center bottom;transform-box:fill-box}
+/* reveal: icon pops in, title wipes in, details rise */
+.js .ach-row .ach-ic{opacity:0;transform:scale(0) rotate(-120deg)}
+.js .ach-row.in .ach-ic{animation:icPop .9s var(--ease) forwards;animation-delay:var(--d)}
+@keyframes icPop{0%{opacity:0;transform:scale(0) rotate(-120deg)}60%{opacity:1;transform:scale(1.2) rotate(10deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+.js .ach-row.in:hover .ach-ic{animation:none;opacity:1;transform:rotate(-12deg) scale(1.08)}
+.js .ach-row .ic-chart rect{transform:scaleY(0)}
+.js .ach-row.in .ic-chart rect{transform:scaleY(1);transition:transform .7s var(--ease)}
+.js .ach-row.in .ic-chart .b1{transition-delay:calc(var(--d) + .5s)}
+.js .ach-row.in .ic-chart .b2{transition-delay:calc(var(--d) + .65s)}
+.js .ach-row.in .ic-chart .b3{transition-delay:calc(var(--d) + .8s)}
+.js .ach-row h4{clip-path:inset(0 100% 0 0);transform:translateX(-14px);transition:clip-path 1s var(--ease),transform 1s var(--ease);transition-delay:calc(var(--d) + .2s)}
+.js .ach-row.in h4{clip-path:inset(0 0 0 0);transform:none}
+.js .ach-row .ach-org,.js .ach-row .d{opacity:0;transform:translateY(12px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--d) + .45s)}
+.js .ach-row.in .ach-org,.js .ach-row.in .d{opacity:1;transform:none}
+
+/* steps */
+.steps{background:var(--gold);padding-block:90px 80px;color:#fff}
+.steps-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.steps h2{color:#fff;max-width:620px}
+.steps .link-arrow{color:#fff;margin-top:14px;white-space:nowrap}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:60px;align-items:stretch}
+.step{background:#fff;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:8px;box-shadow:0 20px 40px -28px rgba(19,25,22,.45);transition:transform .45s var(--ease),box-shadow .45s var(--ease);cursor:default;height:100%}
+.step small{color:var(--gold);font-size:13px;font-weight:500}
+.step h3{color:var(--ink);font-size:clamp(24px,2.1vw,30px);letter-spacing:-.01em}
+.step p{color:var(--text);font-size:15px;line-height:1.5;min-height:46px}
+.step .sp{margin-top:auto;padding-top:22px}
+.step .sp div{border-radius:12px;overflow:hidden;aspect-ratio:3/4.4}
+.step img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .9s var(--ease)}
+.step:hover,.step:active,.step:focus-within{transform:translateY(-10px) rotate(-.6deg);box-shadow:0 36px 60px -30px rgba(19,25,22,.55)}
+.step-wrap:nth-child(2) .step:hover,.step-wrap:nth-child(2) .step:active{transform:translateY(-10px) rotate(.6deg)}
+.step-wrap{display:flex}
+.step-wrap>.step{flex:1}
+.step:hover img,.step:active img{transform:scale(1.06)}
+.step:hover small{letter-spacing:.06em;transition:letter-spacing .4s var(--ease)}
+
+/* testimonials marquee */
+.reviews{padding-block:100px 60px;overflow:hidden}
+.marquee{overflow:hidden;margin-top:44px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee+.marquee{margin-top:16px}
+.track{display:flex;gap:16px;width:max-content;animation:marq 60s linear infinite}
+.marquee.rev .track{animation-direction:reverse}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+.tcard{width:360px;background:var(--sand);border-radius:14px;padding:26px 28px;display:flex;flex-direction:column;justify-content:space-between;gap:22px;min-height:210px}
+.tcard q{font-size:17px;line-height:1.45;color:var(--ink);quotes:"\201C" "\201D"}
+.tcard p{font-size:14px;color:var(--mut)}
+.stars{color:var(--gold);letter-spacing:2px;font-size:14px}
+
+/* listings */
+.listings{padding-block:60px 90px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+
+/* faq */
+.faq{padding-block:80px 120px}
+.faq-list{max-width:900px;margin:44px auto 0}
+.qa{border-bottom:1px solid var(--gold)}
+.qa button{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 8px;font-size:18px;color:var(--ink)}
+.qa button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.qa .ic{font-size:20px;color:var(--mut);transition:transform .4s var(--ease)}
+.qa.open .ic{transform:rotate(45deg)}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.qa.open .ans{grid-template-rows:1fr}
+.qa .ans>div{overflow:hidden}
+.qa .ans p{padding:0 8px 20px;color:var(--text);font-size:16px;max-width:720px}
+
+/* closing cta */
+.cta{background:var(--cta-bg,var(--taupe));position:relative;overflow:hidden}
+.cta .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:620px}
+.cta-copy{padding-block:120px}
+.cta-copy .script{font-size:clamp(46px,4.4vw,64px);line-height:1;color:var(--cta-script,var(--gold))}
+.cta-copy h2{color:var(--cta-text,#fff);margin:6px 0 28px}
+.cta-copy .link-arrow{color:var(--cta-link,#fff)}
+.cta-img{position:absolute;top:0;right:0;bottom:0;width:min(58%,820px);z-index:1}
+.cta-img img{width:100%;height:100%;object-fit:cover;object-position:center 18%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 22%,#000 48%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 22%,#000 48%)}
+.cta-img::after{content:"";position:absolute;inset:0;background:var(--cta-shade,linear-gradient(0deg,rgba(107,101,92,.55),transparent 30%));pointer-events:none}
+
+/* footer */
+footer{background:var(--black);color:#e9e9e9;padding-block:50px 40px;font-size:14px}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr auto;gap:32px}
+footer .logo{font-size:40px}
+footer .lic{margin-top:14px;line-height:1.55;max-width:360px}
+footer nav{all:unset}
+.fcol{display:flex;flex-direction:column;gap:16px}
+.fbot{margin-top:56px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;font-size:12px;color:#bdbdbd}
+.kwmark{border:1px solid #777;border-radius:8px;padding:8px 12px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ddd}
+
+/* ===== motion (mirrors the Framer template) ===== */
+.js .rw .w{display:inline-block;opacity:.12;filter:blur(8px);transform:translateY(.25em);transition:opacity .8s var(--ease),filter .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i)*55ms)}
+.js .rw.in .w{opacity:1;filter:blur(0);transform:none}
+.js .fu{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
+.js .fu.in{opacity:1;transform:none}
+.js .fl{opacity:0;transform:translateX(-60px);transition:opacity .9s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0ms)}
+.js .fl.in{opacity:1;transform:none}
+.js .hero-img{opacity:0;transform:translateY(60px) scale(.97);transition:opacity 1.2s var(--ease) .25s,transform 1.4s var(--ease) .25s}
+.js .hero-img.in{opacity:1;transform:none}
+.js .zi{opacity:0;transform:scale(.94);transition:opacity 1s var(--ease),transform 1.2s var(--ease)}
+.js .zi.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js .rw .w,.js .fu,.js .fl,.js .hero-img,.js .zi{opacity:1!important;filter:none!important;transform:none!important;transition:none!important}
+  .track{animation:none}
+  .js .ach-row .ach-ic,.js .ach-row h4,.js .ach-row .ach-org,.js .ach-row .d,.js .ach-row .ic-chart rect{opacity:1!important;transform:none!important;clip-path:none!important;animation:none!important;transition:none!important}
+  .ic-star svg{animation:none}
+  html{scroll-behavior:auto}
+}
+
+@media (max-width:980px){
+  .links{display:none}
+  .menu-btn{display:block}
+  .mmenu{display:grid;overflow:hidden;max-height:0;transition:max-height .45s var(--ease);background:#fff;padding-inline:clamp(16px,5vw,78px)}
+  nav.open .mmenu{max-height:360px;border-bottom:1px solid var(--line)}
+  .mmenu a{padding:14px 0;font-size:18px;color:var(--ink);border-top:1px solid var(--line)}
+  .why,.deals,.ach,.steps,.reviews,.faq,.listings{padding-block:64px}
+  .about{padding-block:40px 64px}
+  .step .sp div{aspect-ratio:4/5}
+  .cta-copy{padding-block:64px 430px!important}
+
+  .hero{min-height:0}
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-copy{padding-block:48px 0}
+  .hero-img{position:relative;right:auto;height:auto;max-width:100%;margin-top:10px}
+  .hero-img img{height:auto;width:100%;max-width:520px;margin-inline:auto}
+  .why-top,.about .wrap,.cta .wrap{grid-template-columns:1fr}
+  .why-top p{justify-self:start}
+  .cards3,.steps-grid{grid-template-columns:1fr}
+  .card{min-height:0}
+  .rail{grid-auto-columns:82%}
+  .ach-row{grid-template-columns:auto 1fr;column-gap:16px;row-gap:2px;padding:12px}
+  .ach-row .ach-ic{grid-row:span 3;width:46px;height:46px;align-self:start}
+  .ach-row .ach-org,.ach-row .d{font-size:14px;text-align:left;color:var(--mut)}
+  .steps-top{flex-direction:column}
+  .cta .wrap{min-height:0}
+  .cta-copy{padding-block:64px 380px}
+  .cta-img{top:auto;height:440px;width:100%}
+  .cta-img img{-webkit-mask-image:linear-gradient(0deg,#000 55%,transparent 100%);mask-image:linear-gradient(0deg,#000 55%,transparent 100%)}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .tcard{width:290px}
+  .video-band{padding-block:6px 56px}
+  .video-frame{aspect-ratio:4/5;max-height:none;border-radius:16px}
+  .video-cap{font-size:20px}
+}
+@media (max-width:520px){
+  .logo{font-size:28px}
+  nav .btn svg{display:none}
+  nav .btn{font-size:13px;padding:8px 11px;white-space:nowrap}
+  nav .wrap{gap:10px}
+  nav .logo{font-size:26px}
+  .fgrid{grid-template-columns:1fr}
+}
+:root{--gold:#9b3f35;--taupe:#5e6b3a;--taupe-card:#6e7b48;--sand:#f6f5f0;--night:#2f3a1f;--ink:#1d1f17;--cta-script:#9b3f35;--cta-bg:#ffffff;--cta-text:#1d1f17;--cta-link:#5e6b3a;--cta-shade:none;--btn:#b0533f;--btn-hover:#8f3f30;--video-script:#ffffff;}
+</style>
+</head>
+<body>
+<div class="banner">Concept preview prepared by Virtual Media Hive for Jessica Tisby. Not an official site.</div>
+<nav aria-label="Main"><div class="wrap">
+  <a class="logo" href="#top">Jessica Tisby</a>
+  <div class="links"><a href="#why">Why Choose Me</a><a href="#deals">Communities</a><a href="#about">About</a><a href="#listings">Listings</a><a href="#faq">FAQ</a></div>
+  <div class="nav-r"><a class="btn" href="tel:+19047423896">Book Appointment <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a><button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span></button></div>
+</div>
+<div class="mmenu" id="mmenu"><a href="#why">Why Choose Me</a><a href="#deals">Communities</a><a href="#about">About</a><a href="#listings">Listings</a><a href="#faq">FAQ</a></div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="hero-copy">
+    <h1 class="rw">Hi, I'm <span class="script">Jessica Tisby</span> your Jacksonville real estate agent.</h1>
+    <p class="fu" style="--d:500ms">Jacksonville Jess helps buyers and sellers across Northeast Florida move with clarity and confidence, backed by Momentum Realty.</p>
+    <a class="btn fu" style="--d:650ms" href="tel:+19047423896">Book Appointment <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a>
+  </div>
+  <div class="hero-img"><img src="jess-cutout.webp" alt="Jessica Tisby" fetchpriority="high"></div>
+</div></header>
+<section class="video-band" aria-label="Video"><div class="wrap"><div class="video-frame"><video autoplay muted loop playsinline preload="auto" poster="jess-video-poster.jpg"><source src="jess-video.mp4" type="video/mp4"></video><div class="video-cap"><span class="script">Jessica Tisby</span>Helping Northeast Florida move with clarity and confidence.</div></div></div></section>
+
+<section class="why" id="why"><div class="wrap">
+  <div class="why-top"><h2 class="rw">Trusted credentials, local knowledge, real energy.</h2><p class="fu">Five national REALTOR® designations, a search tool with every listing from every agent, and someone who will pick up the phone when you need her.</p></div>
+  <div class="cards3">
+    <div class="card fu"><div><div class="big">5</div><div class="lbl">National designations: ABR, SRS, PSA, RENE and MRP</div></div>
+      <div><div class="partof">Part of</div><div class="wordmark">Momentum Realty</div></div></div>
+    <div class="card fu" style="--d:120ms"><div><h4>Specialty Area</h4><div class="pills"><span class="pill">Jacksonville</span><span class="pill">Ponte Vedra</span><span class="pill">Orange Park</span><span class="pill">Fernandina Beach</span><span class="pill">Green Cove Springs</span><span class="pill">Middleburg</span><span class="pill">Palm Coast</span></div></div>
+      <div><div class="big">8</div><div class="lbl">Northeast Florida communities served, from the beaches to Clay County.</div></div></div>
+    <div class="card dark fu" style="--d:240ms"><div><div class="big">MRP</div><div class="lbl">Military Relocation Professional</div></div>
+      <blockquote>&quot;Have a question, want to see a home in person, or curious what yours is worth? Give me a call today.&quot;</blockquote></div>
+  </div>
+</div></section>
+
+<section class="deals" id="deals"><div class="wrap">
+  <h2 class="rw center">Featured Communities</h2>
+  <div class="rail-wrap fu">
+    <div class="arrows"><button type="button" aria-label="Previous" data-dir="-1" data-rail="r1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg></button><button type="button" aria-label="Next" data-dir="1" data-rail="r1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button></div>
+    <div class="rail" id="r1"><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>3,475 listings</span></div><div class="row"><h3>Jacksonville</h3><span class="price">3,475 listings</span></div><div class="meta"><span>Duval County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>200 listings</span></div><div class="row"><h3>Ponte Vedra Beach</h3><span class="price">200 listings</span></div><div class="meta"><span>St. Johns County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>269 listings</span></div><div class="row"><h3>Orange Park</h3><span class="price">269 listings</span></div><div class="meta"><span>Clay County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>221 listings</span></div><div class="row"><h3>Fernandina Beach</h3><span class="price">221 listings</span></div><div class="meta"><span>Nassau County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>370 listings</span></div><div class="row"><h3>Green Cove Springs</h3><span class="price">370 listings</span></div><div class="meta"><span>Clay County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>295 listings</span></div><div class="row"><h3>Palm Coast</h3><span class="price">295 listings</span></div><div class="meta"><span>Flagler County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>300 listings</span></div><div class="row"><h3>Middleburg</h3><span class="price">300 listings</span></div><div class="meta"><span>Clay County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>211 listings</span></div><div class="row"><h3>Ponte Vedra</h3><span class="price">211 listings</span></div><div class="meta"><span>St. Johns County</span><span class="pill">Search homes</span></div></a></div>
+  </div>
+</div></section>
+
+<section class="about" id="about"><div class="wrap">
+  <div class="about-copy"><h2 class="rw">Meet <span class="script">Jessica Tisby</span></h2><p class="fu" style="--d:150ms">I&#x27;m Jessica Tisby, known around town as Jacksonville Jess. I help buyers and sellers across Northeast Florida, and I bring the same energy to a first apartment as I do to a beach house.</p><p class="fu" style="--d:270ms">Helping people move forward with clarity and confidence is what drives me. My site carries every listing from every agent, so you never have to look anywhere else, and if you want to see a home in person or know what yours is worth, just call.</p></div>
+  <div class="about-photo zi"><img src="jess-sold.jpg" alt="Jessica Tisby"><div class="socials"><a href="https://www.instagram.com/jacksonville_jess/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a></div></div>
+</div></section>
+
+<section class="ach"><div class="wrap">
+  <h2 class="rw center">My Credentials &amp; Designations</h2>
+  <div class="ach-list"><div class="ach-row" style="--d:0ms"><span class="ach-ic ic-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><h4>ABR: Accredited Buyer&#x27;s Representative</h4><span class="ach-org">National Association of REALTORS®</span><span class="d">Designation</span></div><div class="ach-row" style="--d:140ms"><span class="ach-ic ic-trophy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0z"/><path d="M17 5h3a3 3 0 01-3 4M7 5H4a3 3 0 003 4"/></svg></span><h4>SRS: Seller Representative Specialist</h4><span class="ach-org">National Association of REALTORS®</span><span class="d">Designation</span></div><div class="ach-row" style="--d:280ms"><span class="ach-ic ic-chart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20h16"/><rect class="b1" x="5" y="13" width="3" height="7" rx="1"/><rect class="b2" x="10.5" y="9" width="3" height="11" rx="1"/><rect class="b3" x="16" y="5" width="3" height="15" rx="1"/></svg></span><h4>PSA: Pricing Strategy Advisor</h4><span class="ach-org">National Association of REALTORS®</span><span class="d">Designation</span></div><div class="ach-row" style="--d:420ms"><span class="ach-ic ic-star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.5 1.1 6.3L12 17.3l-5.6 3 1.1-6.3-4.6-4.5 6.3-.9z"/></svg></span><h4>RENE: Real Estate Negotiation Expert</h4><span class="ach-org">National Association of REALTORS®</span><span class="d">Designation</span></div><div class="ach-row" style="--d:560ms"><span class="ach-ic ic-dollar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M15 9.2c-.5-1-1.6-1.6-3-1.6-1.7 0-3 .9-3 2.2 0 3 6 1.6 6 4.6 0 1.3-1.3 2.2-3 2.2-1.5 0-2.6-.6-3.1-1.7M12 6v1.6M12 16.6V18"/></svg></span><h4>MRP: Military Relocation Professional</h4><span class="ach-org">National Association of REALTORS®</span><span class="d">Designation</span></div></div>
+</div></section>
+
+<section class="steps"><div class="wrap">
+  <div class="steps-top"><h2 class="rw">Three simple steps to your next move.</h2><a class="link-arrow fu" href="tel:+19047423896">Book Appointment <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></div>
+  <div class="steps-grid"><div class="fl step-wrap" style="--d:0ms"><div class="step" tabindex="0"><small>Step 01</small><h3>Book a Call</h3><p>A quick, no-pressure chat about what you&#x27;re looking for and where you&#x27;re at.</p><div class="sp"><div><img src="jess-chaise.jpg" alt=""></div></div></div></div><div class="fl step-wrap" style="--d:180ms"><div class="step" tabindex="0"><small>Step 02</small><h3>Tell Your Story</h3><p>Share your goals, timeline and must-haves so I can tailor the search or sale to you.</p><div class="sp"><div><img src="jess-couch.jpg" alt=""></div></div></div></div><div class="fl step-wrap" style="--d:360ms"><div class="step" tabindex="0"><small>Step 03</small><h3>Get Your Keys</h3><p>I handle the details and keep you updated at every step, all the way to SOLD.</p><div class="sp"><div><img src="jess-sold.jpg" alt=""></div></div></div></div></div>
+</div></section>
+
+<section class="listings" id="listings"><div class="wrap">
+  <div class="head-row"><h2 class="rw">Featured Properties</h2><a class="btn fu" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener">See More Listings <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></div>
+  <div class="rail-wrap fu">
+    <div class="arrows"><button type="button" aria-label="Previous" data-dir="-1" data-rail="r2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg></button><button type="button" aria-label="Next" data-dir="1" data-rail="r2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button></div>
+    <div class="rail" id="r2"><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><span class="status">Featured</span><img loading="lazy" src="jess-listing-1.jpg" alt="4 Beds · 2 Baths" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>4 Beds · 2 Baths</h3><span class="price">$465,000</span></div><div class="meta"><span>Jacksonville</span><span class="pill">Jacksonville</span></div><p class="court">Listing courtesy of Rita Hewett, Herron Real Estate LLC</p></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><span class="status">Featured</span><img loading="lazy" src="jess-listing-2.jpg" alt="3 Beds · 2 Baths · 2,068 sq ft" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>3 Beds · 2 Baths · 2,068 sq ft</h3><span class="price">$310,000</span></div><div class="meta"><span>Jacksonville</span><span class="pill">Jacksonville</span></div><p class="court">Listing courtesy of Keri Halter, Marsh View Real Estate</p></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><span class="status">Featured</span><img loading="lazy" src="jess-listing-3.jpg" alt="5 Beds · 4 Baths" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>5 Beds · 4 Baths</h3><span class="price">$479,000</span></div><div class="meta"><span>Jacksonville</span><span class="pill">Jacksonville</span></div><p class="court">Listing courtesy of Elizabeth Moors, 1 Percent Lists First Coast</p></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><span class="status">Featured</span><img loading="lazy" src="jess-listing-4.jpg" alt="2 Beds · 2 Baths" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>2 Beds · 2 Baths</h3><span class="price">$390,000</span></div><div class="meta"><span>Jacksonville</span><span class="pill">Jacksonville</span></div><p class="court">Listing courtesy of Carmen Godwin, Cowford Realty &amp; Design LLC</p></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><span class="status">Featured</span><img loading="lazy" src="jess-listing-5.jpg" alt="3 Beds · 1 Bath · 1,164 sq ft" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>3 Beds · 1 Bath · 1,164 sq ft</h3><span class="price">$330,000</span></div><div class="meta"><span>Jacksonville</span><span class="pill">Jacksonville</span></div><p class="court">Listing courtesy of Carmen Godwin, Cowford Realty &amp; Design LLC</p></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><span class="status">Featured</span><img loading="lazy" src="jess-listing-6.jpg" alt="3 Beds · 2 Baths" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>3 Beds · 2 Baths</h3><span class="price">$429,999</span></div><div class="meta"><span>Jacksonville</span><span class="pill">Jacksonville</span></div><p class="court">Listing courtesy of Ilda Gramozi, Florida Homes Realty &amp; Mtg LLC</p></a></div>
+  </div>
+</div></section>
+
+<section class="faq" id="faq"><div class="wrap">
+  <h2 class="rw center">Answers to Your Questions</h2>
+  <div class="faq-list"><div class="qa"><button type="button" aria-expanded="false" id="q0"><span>Do you work with first-time homebuyers?</span><span class="ic">+</span></button><div class="ans"><div><p>Yes. As an Accredited Buyer&#x27;s Representative, I walk you through every step, from pre-approval to closing, in plain language.</p></div></div></div><div class="qa"><button type="button" aria-expanded="false" id="q1"><span>What areas do you serve?</span><span class="ic">+</span></button><div class="ans"><div><p>Jacksonville and Northeast Florida, including Ponte Vedra, Orange Park, Fernandina Beach, Green Cove Springs, Middleburg and Palm Coast.</p></div></div></div><div class="qa"><button type="button" aria-expanded="false" id="q2"><span>Can you help me sell my home?</span><span class="ic">+</span></button><div class="ans"><div><p>Yes. As a Seller Representative Specialist and Pricing Strategy Advisor, I&#x27;ll help you price it right and market it well.</p></div></div></div><div class="qa"><button type="button" aria-expanded="false" id="q3"><span>Do you help military families relocating to Jacksonville?</span><span class="ic">+</span></button><div class="ans"><div><p>Yes. I&#x27;m a Military Relocation Professional and understand PCS timelines and VA loan basics.</p></div></div></div><div class="qa"><button type="button" aria-expanded="false" id="q4"><span>Can I search every listing on your site?</span><span class="ic">+</span></button><div class="ans"><div><p>Yes. My site has all listings from all agents, with photos, maps and alerts for new listings and price changes.</p></div></div></div><div class="qa"><button type="button" aria-expanded="false" id="q5"><span>Can we talk before I commit to anything?</span><span class="ic">+</span></button><div class="ans"><div><p>Of course. The first call is just a conversation. No pressure, no obligation.</p></div></div></div></div>
+</div></section>
+
+<section class="cta"><div class="wrap">
+  <div class="cta-copy"><div class="script fu">Jessica Tisby</div><h2 class="rw">Your Jacksonville real estate agent.</h2><a class="link-arrow fu" style="--d:300ms" href="tel:+19047423896">Book Appointment <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></div>
+  <div class="cta-img zi"><img src="jess-portrait.jpg" alt="Jessica Tisby"></div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><div class="logo">Jessica Tisby</div><p class="lic">Jessica Tisby · REALTOR® · REALTOR®, ABR, SRS, PSA, RENE, MRP · Momentum Realty<br>13475 Atlantic Blvd, Suite 8, Jacksonville, FL 32225</p></div>
+    <div class="fcol"><a href="#why">Why Choose Me</a><a href="#deals">Communities</a><a href="#about">About</a><a href="#listings">Listings</a><a href="#faq">FAQ</a></div>
+    <div class="fcol"><a href="tel:+19047423896">(904) 742-3896</a><a href="mailto:info@jacksonvillejess.com">info@jacksonvillejess.com</a></div>
+    <div class="fcol"><a href="https://www.instagram.com/jacksonville_jess/" target="_blank" rel="noopener">Instagram</a></div>
+  </div>
+  <div class="fbot"><span class="kwmark">Momentum Realty</span><span>Each office independently owned and operated · Equal Housing Opportunity</span><span>Designed &amp; built by Virtual Media Hive</span></div>
+</div></footer>
+
+<script>
+(function(){
+  var d=document.documentElement;
+  // split headings into words for the staggered blur-in reveal
+  document.querySelectorAll('.rw').forEach(function(el){
+    var i=0;
+    (function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(n){
+        if(n.nodeType===3){
+          var frag=document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function(part){
+            if(!part)return;
+            if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(part));return;}
+            var s=document.createElement('span');s.className='w';s.style.setProperty('--i',i++);s.textContent=part;frag.appendChild(s);
+          });
+          n.parentNode.replaceChild(frag,n);
+        }else if(n.nodeType===1&&n.classList.contains('script')){
+          n.classList.add('w');n.style.setProperty('--i',i++);
+        }else if(n.nodeType===1){walk(n);}
+      });
+    })(el);
+  });
+  var vf=document.querySelector('.video-frame');
+  if(vf&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var tick=function(){var r=vf.getBoundingClientRect();var vh=innerHeight;var p=Math.min(1,Math.max(0,(vh-r.top)/(vh*.85)));vf.style.setProperty('--vs',(0.88+0.12*p).toFixed(4));};
+    addEventListener('scroll',function(){requestAnimationFrame(tick)},{passive:true});addEventListener('resize',tick);tick();
+  }
+  if(!('IntersectionObserver' in window)){return;}
+  d.classList.add('js');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rw,.fu,.fl,.zi,.hero-img,.ach-row').forEach(function(el){io.observe(el);});
+
+  document.querySelectorAll('.arrows button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var r=document.getElementById(b.dataset.rail);var card=r.firstElementChild;
+      var step=card?card.getBoundingClientRect().width+16:300;
+      var max=r.scrollWidth-r.clientWidth;var next=r.scrollLeft+step*Number(b.dataset.dir);
+      if(next>max+4)next=0;if(next<-4)next=max;
+      r.scrollTo({left:next,behavior:'smooth'});
+    });
+  });
+  // FAQ accordion
+  var nav=document.querySelector('nav'),mb=document.querySelector('.menu-btn');
+  if(mb){mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)});document.querySelectorAll('.mmenu a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');mb.setAttribute('aria-expanded','false')})});}
+  document.querySelectorAll('.qa button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var qa=b.parentElement;var open=qa.classList.toggle('open');b.setAttribute('aria-expanded',open);
+    });
+  });
+})();
+</script>
+</body>
+</html>
