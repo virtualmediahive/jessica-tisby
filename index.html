@@ -63,7 +63,7 @@ nav.open .menu-btn span:last-child{top:19px;transform:rotate(-45deg)}
 .hero-copy{position:relative;z-index:2;padding-block:80px;max-width:640px}
 .hero-copy p{font-size:16px;color:var(--text);max-width:440px;margin:26px 0 22px;line-height:1.5}
 .hero-img{position:absolute;right:clamp(0px,3vw,60px);bottom:0;height:94%;max-height:800px;width:auto;max-width:56%;z-index:1;display:flex;align-items:flex-end;justify-content:center}
-.hero-img img{height:100%;width:auto;object-fit:contain;object-position:bottom;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);mask-image:linear-gradient(90deg,transparent 0,#000 14%)}
+.hero-img img{height:100%;width:auto;object-fit:contain;object-position:bottom;-webkit-mask-image:var(--hero-mask,linear-gradient(90deg,transparent 0,#000 14%));mask-image:var(--hero-mask,linear-gradient(90deg,transparent 0,#000 14%));-webkit-mask-composite:source-in;mask-composite:intersect}
 
 
 /* video band (sits just below the hero) */
@@ -89,7 +89,7 @@ nav.open .menu-btn span:last-child{top:19px;transform:rotate(-45deg)}
 .wordmark b{font-size:18px;letter-spacing:.06em;font-weight:500}
 .pills{display:flex;flex-wrap:wrap;gap:8px}
 .pill{border:1px solid #444;border-radius:999px;padding:5px 11px;font-size:13px;color:#333;white-space:nowrap}
-.card.dark{background:var(--taupe-card);color:#fff}
+.card.dark{background:var(--card-dark,var(--taupe-card));color:#fff}
 .card.dark .big,.card.dark .lbl{color:#fff}
 .card.dark blockquote{font-size:clamp(19px,1.6vw,22px);line-height:1.35}
 
@@ -216,14 +216,14 @@ nav.open .menu-btn span:last-child{top:19px;transform:rotate(-45deg)}
 .cta-copy .script{font-size:clamp(46px,4.4vw,64px);line-height:1;color:var(--cta-script,var(--gold))}
 .cta-copy h2{color:var(--cta-text,#fff);margin:6px 0 28px}
 .cta-copy .link-arrow{color:var(--cta-link,#fff)}
-.cta-img{position:absolute;top:0;right:0;bottom:0;width:min(58%,820px);z-index:1}
-.cta-img img{width:100%;height:100%;object-fit:cover;object-position:center 18%;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 22%,#000 48%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 22%,#000 48%)}
+.cta-img{position:absolute;top:0;right:0;bottom:0;width:var(--cta-img-w,min(58%,820px));z-index:1}
+.cta-img img{width:100%;height:100%;object-fit:cover;object-position:center 18%;-webkit-mask-image:var(--cta-mask,linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 22%,#000 48%));mask-image:var(--cta-mask,linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 22%,#000 48%))}
 .cta-img::after{content:"";position:absolute;inset:0;background:var(--cta-shade,linear-gradient(0deg,rgba(107,101,92,.55),transparent 30%));pointer-events:none}
 
 /* footer */
-footer{background:var(--black);color:#e9e9e9;padding-block:50px 40px;font-size:14px}
+footer{background:var(--footer-bg,var(--black));color:#e9e9e9;padding-block:50px 40px;font-size:14px}
 .fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr auto;gap:32px}
-footer .logo{font-size:40px}
+footer .logo{font-size:40px;color:var(--footer-logo,var(--gold))}
 footer .lic{margin-top:14px;line-height:1.55;max-width:360px}
 footer nav{all:unset}
 .fcol{display:flex;flex-direction:column;gap:16px}
@@ -292,7 +292,7 @@ footer nav{all:unset}
   nav .logo{font-size:26px}
   .fgrid{grid-template-columns:1fr}
 }
-:root{--gold:#9b3f35;--taupe:#5e6b3a;--taupe-card:#6e7b48;--sand:#f6f5f0;--night:#2f3a1f;--ink:#1d1f17;--cta-script:#9b3f35;--cta-bg:#ffffff;--cta-text:#1d1f17;--cta-link:#5e6b3a;--cta-shade:none;--btn:#b0533f;--btn-hover:#8f3f30;--video-script:#ffffff;}
+:root{--gold:#9b3f35;--taupe:#5e6b3a;--taupe-card:#6e7b48;--sand:#f6f5f0;--night:#2f3a1f;--ink:#1d1f17;--cta-script:#9b3f35;--cta-bg:#ffffff;--cta-text:#1d1f17;--cta-link:#5e6b3a;--cta-shade:none;--btn:#b0533f;--btn-hover:#8f3f30;--video-script:#ffffff;--footer-bg:#b0533f;--card-dark:#b0533f;--cta-img-w:100%;--cta-mask:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.15) 28%,rgba(0,0,0,.85) 52%,#000 64%);--hero-mask:linear-gradient(90deg,transparent 0,#000 16%);--footer-logo:#ffffff;}
 </style>
 </head>
 <body>
@@ -330,7 +330,7 @@ footer nav{all:unset}
   <h2 class="rw center">Featured Communities</h2>
   <div class="rail-wrap fu">
     <div class="arrows"><button type="button" aria-label="Previous" data-dir="-1" data-rail="r1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg></button><button type="button" aria-label="Next" data-dir="1" data-rail="r1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button></div>
-    <div class="rail" id="r1"><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>3,475 listings</span></div><div class="row"><h3>Jacksonville</h3><span class="price">3,475 listings</span></div><div class="meta"><span>Duval County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>200 listings</span></div><div class="row"><h3>Ponte Vedra Beach</h3><span class="price">200 listings</span></div><div class="meta"><span>St. Johns County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>269 listings</span></div><div class="row"><h3>Orange Park</h3><span class="price">269 listings</span></div><div class="meta"><span>Clay County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>221 listings</span></div><div class="row"><h3>Fernandina Beach</h3><span class="price">221 listings</span></div><div class="meta"><span>Nassau County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>370 listings</span></div><div class="row"><h3>Green Cove Springs</h3><span class="price">370 listings</span></div><div class="meta"><span>Clay County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>295 listings</span></div><div class="row"><h3>Palm Coast</h3><span class="price">295 listings</span></div><div class="meta"><span>Flagler County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>300 listings</span></div><div class="row"><h3>Middleburg</h3><span class="price">300 listings</span></div><div class="meta"><span>Clay County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph ph-text"><span><small>Search homes</small>211 listings</span></div><div class="row"><h3>Ponte Vedra</h3><span class="price">211 listings</span></div><div class="meta"><span>St. Johns County</span><span class="pill">Search homes</span></div></a></div>
+    <div class="rail" id="r1"><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="jess-listing-1.jpg" alt="Jacksonville" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>Jacksonville</h3><span class="price">3,475 listings</span></div><div class="meta"><span>Duval County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="jess-listing-2.jpg" alt="Ponte Vedra Beach" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>Ponte Vedra Beach</h3><span class="price">200 listings</span></div><div class="meta"><span>St. Johns County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="jess-listing-3.jpg" alt="Orange Park" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>Orange Park</h3><span class="price">269 listings</span></div><div class="meta"><span>Clay County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="jess-listing-4.jpg" alt="Fernandina Beach" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>Fernandina Beach</h3><span class="price">221 listings</span></div><div class="meta"><span>Nassau County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="jess-listing-5.jpg" alt="Green Cove Springs" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>Green Cove Springs</h3><span class="price">370 listings</span></div><div class="meta"><span>Clay County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="jess-listing-6.jpg" alt="Palm Coast" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>Palm Coast</h3><span class="price">295 listings</span></div><div class="meta"><span>Flagler County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="jess-listing-3.jpg" alt="Middleburg" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>Middleburg</h3><span class="price">300 listings</span></div><div class="meta"><span>Clay County</span><span class="pill">Search homes</span></div></a><a class="deal" href="https://www.jacksonvillejess.com/" target="_blank" rel="noopener"><div class="ph"><img loading="lazy" src="jess-listing-1.jpg" alt="Ponte Vedra" onerror="this.style.visibility='hidden'"></div><div class="row"><h3>Ponte Vedra</h3><span class="price">211 listings</span></div><div class="meta"><span>St. Johns County</span><span class="pill">Search homes</span></div></a></div>
   </div>
 </div></section>
 
@@ -430,5 +430,18 @@ footer nav{all:unset}
   });
 })();
 </script>
+<style>
+.house-cur{position:fixed;left:0;top:0;width:30px;height:30px;pointer-events:none;z-index:9999;opacity:0;transition:opacity .3s;will-change:transform}
+.house-cur svg{width:100%;height:100%;filter:drop-shadow(0 4px 8px rgba(0,0,0,.18))}
+.house-cur.on{opacity:1}
+.house-dot{position:fixed;left:0;top:0;width:8px;height:8px;border-radius:50%;background:var(--btn,var(--gold));pointer-events:none;z-index:9998;opacity:0;transition:opacity .6s,transform .9s ease-out}
+@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.house-cur,.house-dot{display:none}}
+</style>
+<div class="house-cur" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 15 16 5l12 10" fill="none" stroke="var(--btn,var(--gold))" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.5 13.5V27h17V13.5" fill="#fff" stroke="var(--taupe)" stroke-width="2.4" stroke-linejoin="round"/><rect x="13.5" y="18.5" width="5" height="8.5" rx="1" fill="var(--btn,var(--gold))"/><rect x="21" y="7" width="3" height="5" fill="var(--taupe)"/></svg></div>
+<script>(function(){if(!matchMedia('(hover:hover) and (pointer:fine)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var h=document.querySelector('.house-cur'),x=0,y=0,cx=0,cy=0,last=0,r=0;
+addEventListener('mousemove',function(e){x=e.clientX;y=e.clientY;h.classList.add('on');var n=performance.now();if(n-last>90){last=n;var d=document.createElement('i');d.className='house-dot';d.style.transform='translate('+(x+6)+'px,'+(y+22)+'px)';document.body.appendChild(d);requestAnimationFrame(function(){d.style.opacity=.55;requestAnimationFrame(function(){d.style.opacity=0;d.style.transform+=' scale(.2)';});});setTimeout(function(){d.remove()},900);}});
+document.addEventListener('mouseleave',function(){h.classList.remove('on')});
+(function loop(){var dx=x-cx;cx+=dx*.18;cy+=(y-cy)*.18;r+=((Math.max(-18,Math.min(18,dx*.6)))-r)*.15;h.style.transform='translate('+(cx+14)+'px,'+(cy+12)+'px) rotate('+r+'deg)';requestAnimationFrame(loop);})();})();</script>
 </body>
 </html>
