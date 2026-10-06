@@ -292,6 +292,62 @@ footer nav{all:unset}
   nav .logo{font-size:26px}
   .fgrid{grid-template-columns:1fr}
 }
+
+.qs{position:relative;z-index:3;margin-top:-34px}
+.qs-box{background:#fff;border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.10);padding:18px;max-width:880px;margin-inline:auto}
+.qs-tabs{display:flex;gap:6px;margin-bottom:12px}
+.qs-tabs button{font:inherit;font-size:14px;border:1px solid rgba(0,0,0,.12);background:#fff;color:var(--ink);padding:8px 18px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
+.qs-tabs button[aria-selected=true]{background:var(--btn,var(--gold));border-color:transparent;color:#fff}
+.qs-row{display:flex;gap:10px}
+.qs-row input{flex:1;min-width:0;font:inherit;font-size:15px;padding:13px 16px;border:1px solid rgba(0,0,0,.14);border-radius:10px;outline:none}
+.qs-row input:focus{border-color:var(--taupe);box-shadow:0 0 0 3px color-mix(in srgb,var(--taupe) 20%,transparent)}
+.qs-row .btn{padding:12px 18px;border:0;cursor:pointer;font:inherit;font-size:15px}
+.qs-note{font-size:12.5px;color:var(--muted,#6b6b6b);margin-top:10px}
+.cred{margin-top:14px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--taupe);line-height:1.6}
+.cred b{display:block;font-weight:500;color:var(--ink);letter-spacing:.04em;text-transform:none;font-size:16px}
+.tools{padding-block:40px 90px}
+.tool{display:grid;grid-template-columns:1fr 1fr;min-height:420px;border-radius:18px;overflow:hidden;background:var(--sand);margin-bottom:22px}
+.tool:nth-child(even) .tool-img{order:2}
+.tool-img{position:relative;overflow:hidden}
+.tool-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.tool:hover .tool-img img{transform:scale(1.05)}
+.tool-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(28px,5vw,70px)}
+.tool-copy small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--btn,var(--gold));margin-bottom:12px}
+.tool-copy h3{font-size:clamp(28px,3vw,42px);letter-spacing:-.03em;line-height:1.05;font-weight:400;margin:0 0 14px}
+.tool-copy p{font-size:15px;line-height:1.55;color:var(--text);max-width:440px;margin:0 0 24px}
+.hv{background:var(--taupe);color:#fff;padding-block:90px}
+.hv .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,6vw,80px);align-items:center}
+.hv h2{color:#fff}.hv h2 .script{color:#fff}
+.hv p{opacity:.9;font-size:16px;line-height:1.55;max-width:520px;margin:14px 0 26px}
+.hv-ticks{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;opacity:.95}
+.hv-ticks span::before{content:"\2713";margin-right:6px;color:#fff}
+.hv-card{background:#fff;color:var(--ink);border-radius:16px;padding:28px;box-shadow:0 24px 60px rgba(0,0,0,.18)}
+.hv-card label{font-size:13px;color:var(--text);display:block;margin-bottom:8px}
+.hv-card input{width:100%;font:inherit;font-size:15px;padding:13px 14px;border:1px solid rgba(0,0,0,.14);border-radius:10px;margin-bottom:14px}
+.hv-card .btn{width:100%;justify-content:center;border:0;cursor:pointer;font:inherit;font-size:15px;padding:13px}
+.loans{padding-block:100px}
+.loans .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:start}
+.loans p{font-size:15px;line-height:1.6;color:var(--text);margin:14px 0}
+.loans .steps-mini{display:grid;gap:12px;margin:22px 0 28px}
+.loans .steps-mini div{display:flex;gap:14px;align-items:flex-start;font-size:15px}
+.loans .steps-mini b{flex:none;width:30px;height:30px;border-radius:50%;background:var(--btn,var(--gold));color:#fff;display:grid;place-items:center;font-weight:500;font-size:14px}
+.loans .fine{font-size:12px;color:var(--muted,#777);line-height:1.5;margin-top:22px}
+.calc{background:var(--sand);border-radius:18px;padding:28px}
+.calc h3{font-size:24px;font-weight:400;letter-spacing:-.02em;margin:0 0 18px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.calc label{font-size:12.5px;color:var(--text)}
+.calc input{width:100%;font:inherit;font-size:15px;padding:11px 12px;border:1px solid rgba(0,0,0,.12);border-radius:10px;background:#fff;margin-top:5px}
+.calc-out{margin-top:20px;padding:20px;border-radius:14px;background:#fff;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.calc-out span{font-size:13px;color:var(--text)}
+.calc-out strong{font-size:clamp(30px,3vw,40px);font-weight:400;letter-spacing:-.03em;color:var(--btn,var(--gold))}
+.calc .btn{margin-top:18px}
+@media (max-width:860px){
+ .qs{margin-top:10px}.qs-row{flex-direction:column}
+ .tool{grid-template-columns:1fr;min-height:0}.tool-img{min-height:240px;order:0!important}
+ .hv .wrap,.loans .wrap{grid-template-columns:1fr}
+ .calc-grid{grid-template-columns:1fr 1fr}
+}
+
 :root{--gold:#9b3f35;--taupe:#5e6b3a;--taupe-card:#6e7b48;--sand:#f6f5f0;--night:#2f3a1f;--ink:#1d1f17;--cta-script:#9b3f35;--cta-bg:#ffffff;--cta-text:#1d1f17;--cta-link:#5e6b3a;--cta-shade:none;--btn:#b0533f;--btn-hover:#8f3f30;--video-script:#ffffff;--footer-bg:#b0533f;--card-dark:#b0533f;--cta-img-w:100%;--cta-mask:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.15) 28%,rgba(0,0,0,.85) 52%,#000 64%);--hero-mask:linear-gradient(90deg,transparent 0,#000 16%);--footer-logo:#ffffff;}
 </style>
 </head>
@@ -299,10 +355,10 @@ footer nav{all:unset}
 <div class="banner">Concept preview prepared by Virtual Media Hive for Jessica Tisby. Not an official site.</div>
 <nav aria-label="Main"><div class="wrap">
   <a class="logo" href="#top">Jessica Tisby</a>
-  <div class="links"><a href="#why">Why Choose Me</a><a href="#deals">Communities</a><a href="#about">About</a><a href="#listings">Listings</a><a href="#faq">FAQ</a></div>
+  <div class="links"><a href="#why">Why Choose Me</a><a href="#deals">Communities</a><a href="#about">About</a><a href="#listings">Listings</a><a href="#home-value">Home Value</a><a href="#home-loans">Home Loans</a><a href="#faq">FAQ</a></div>
   <div class="nav-r"><a class="btn" href="tel:+19047423896">Book Appointment <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a><button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span></button></div>
 </div>
-<div class="mmenu" id="mmenu"><a href="#why">Why Choose Me</a><a href="#deals">Communities</a><a href="#about">About</a><a href="#listings">Listings</a><a href="#faq">FAQ</a></div></nav>
+<div class="mmenu" id="mmenu"><a href="#why">Why Choose Me</a><a href="#deals">Communities</a><a href="#about">About</a><a href="#listings">Listings</a><a href="#home-value">Home Value</a><a href="#home-loans">Home Loans</a><a href="#faq">FAQ</a></div></nav>
 
 <header class="hero" id="top"><div class="wrap">
   <div class="hero-copy">
@@ -312,6 +368,15 @@ footer nav{all:unset}
   </div>
   <div class="hero-img"><img src="jess-cutout.webp" alt="Jessica Tisby" fetchpriority="high"></div>
 </div></header>
+<section class="qs" aria-label="Search homes"><div class="wrap"><div class="qs-box fu">
+<div class="qs-tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-mode="buy">Buy</button><button type="button" role="tab" aria-selected="false" data-mode="sell">Sell</button></div>
+<form class="qs-row" data-buy="https://www.jacksonvillejess.com/fine/real/estate/newsearch" data-sell="https://www.jacksonvillejess.com/fine/real/estate/marketeval" target="_blank">
+<input type="text" name="q" aria-label="Search" placeholder="City, neighborhood or ZIP" data-pbuy="City, neighborhood or ZIP" data-psell="Enter your home address">
+<button class="btn" type="submit"><span>Search Homes</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button></form>
+<div class="qs-note">Every listing from every agent across Northeast Florida, updated daily.</div></div></div></section>
+<script>(function(){var b=document.querySelector('.qs-box');if(!b)return;var f=b.querySelector('form'),i=f.querySelector('input'),s=f.querySelector('.btn span'),m='buy';
+b.querySelectorAll('.qs-tabs button').forEach(function(t){t.addEventListener('click',function(){m=t.dataset.mode;b.querySelectorAll('.qs-tabs button').forEach(function(x){x.setAttribute('aria-selected',x===t)});i.placeholder=m==='buy'?i.dataset.pbuy:i.dataset.psell;s.textContent=m==='buy'?'Search Homes':'Get My Home Value';})});
+f.addEventListener('submit',function(ev){ev.preventDefault();window.open(m==='buy'?f.dataset.buy:f.dataset.sell,'_blank','noopener');});})();</script>
 <section class="video-band" aria-label="Video"><div class="wrap"><div class="video-frame"><video autoplay muted loop playsinline preload="auto" poster="jess-video-poster.jpg"><source src="jess-video.mp4" type="video/mp4"></video><div class="video-cap"><span class="script">Jessica Tisby</span>Helping Northeast Florida move with clarity and confidence.</div></div></div></section>
 
 <section class="why" id="why"><div class="wrap">
@@ -335,9 +400,27 @@ footer nav{all:unset}
 </div></section>
 
 <section class="about" id="about"><div class="wrap">
-  <div class="about-copy"><h2 class="rw">Meet <span class="script">Jessica Tisby</span></h2><p class="fu" style="--d:150ms">I&#x27;m Jessica Tisby, known around town as Jacksonville Jess. I help buyers and sellers across Northeast Florida, and I bring the same energy to a first apartment as I do to a beach house.</p><p class="fu" style="--d:270ms">Helping people move forward with clarity and confidence is what drives me. My site carries every listing from every agent, so you never have to look anywhere else, and if you want to see a home in person or know what yours is worth, just call.</p></div>
+  <div class="about-copy"><h2 class="rw">Meet <span class="script">Jessica Tisby</span></h2><div class="cred fu" style="--d:80ms"><b>Jessica Tisby, REALTOR®, ABR, SRS, PSA, RENE, MRP</b>Momentum Realty · Jacksonville, FL</div><p class="fu" style="--d:150ms">I&#x27;m Jessica Tisby, known around town as Jacksonville Jess. I help buyers and sellers across Northeast Florida, and I bring the same energy to a first apartment as I do to a beach house.</p><p class="fu" style="--d:270ms">Helping people move forward with clarity and confidence is what drives me. My site carries every listing from every agent, so you never have to look anywhere else, and if you want to see a home in person or know what yours is worth, just call.</p></div>
   <div class="about-photo zi"><img src="jess-sold.jpg" alt="Jessica Tisby"><div class="socials"><a href="https://www.instagram.com/jacksonville_jess/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a></div></div>
 </div></section>
+<section class="tools" id="tools"><div class="wrap"><div class="tool fu"><div class="tool-img"><img src="jess-tool-newSearch.jpg" alt="" loading="lazy"></div>
+<div class="tool-copy"><small>Search</small><h3>Let the Adventure Begin</h3><p>Use my advanced search tool to choose from a variety of filters to narrow down your search. You can also save your favorite properties, save your searches, and get email notifications of new listings and price changes.</p><a class="btn" href="https://www.jacksonvillejess.com/fine/real/estate/newsearch" target="_blank" rel="noopener">Start Your Search <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></div></div><div class="tool fu"><div class="tool-img"><img src="jess-tool-homeWorthBox.jpg" alt="" loading="lazy"></div>
+<div class="tool-copy"><small>Sell</small><h3>What Is My Home Worth?</h3><p>Use my home valuation tool to request an estimate of your home&#x27;s value. You&#x27;ll even be notified when a new listing comes up in your neighborhood.</p><a class="btn" href="https://www.jacksonvillejess.com/fine/real/estate/marketeval" target="_blank" rel="noopener">Request Your Home Value <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></div></div><div class="tool fu"><div class="tool-img"><img src="jess-tool-mobileSearch.jpg" alt="" loading="lazy"></div>
+<div class="tool-copy"><small>Mobile</small><h3>Go Mobile</h3><p>You don&#x27;t have to be stuck at home to search for homes. Take my site with you on the go, and even search for homes that are near you.</p><a class="btn" href="https://www.jacksonvillejess.com/fine/real/estate/mapsearch" target="_blank" rel="noopener">Find Out How <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a></div></div></div></section><section class="hv" id="home-value"><div class="wrap">
+<div><h2 class="rw">Free Home Value <span class="script">Estimate</span></h2><p class="fu">Find out what your home may be worth in today&#x27;s market. Enter your property address to start your free market value estimate, built on current local market data.</p><div class="hv-ticks fu"><span>No obligation</span><span>Fast estimate</span><span>Local market insight</span></div></div>
+<form class="hv-card zi" onsubmit="event.preventDefault();window.open('https://www.jacksonvillejess.com/fine/real/estate/marketeval','_blank','noopener')"><label for="hv-addr">Property address</label><input id="hv-addr" type="text" placeholder="123 Main St, Jacksonville, FL" autocomplete="street-address"><button class="btn" type="submit">Get My Free Estimate <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button></form>
+</div></section><section class="loans" id="home-loans"><div class="wrap">
+<div><h2 class="rw">Home Loans &amp; <span class="script">Pre-Qualification</span></h2><p class="fu">By completing a Loan Pre-Qualification you&#x27;ll be on your way to locking in your interest rate and showing sellers you mean business. Pre-qualification is easy and can be done by email or over the phone.</p><p class="fu">I&#x27;d be happy to connect you with one of the home loan professionals I work with on a regular basis.</p><div class="steps-mini fu"><div><b>1</b><span>Fill in the short pre-qualification form</span></div><div><b>2</b><span>A Loan Officer contacts you to tailor a loan to your needs</span></div><div><b>3</b><span>Shop with confidence and a clear budget</span></div></div>
+<a class="btn fu" href="https://www.jacksonvillejess.com/fine/real/estate/homeloans" target="_blank" rel="noopener">Start My Pre-Qualification <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></a><p class="fine">Rates, points and fees are subject to change and cannot be guaranteed. This calculator is an estimate only and is not a credit approval or an offer to extend credit. Please contact a licensed mortgage professional for current rates.</p></div>
+<div class="calc zi" id="calc"><h3>Mortgage Calculator</h3><div class="calc-grid">
+<label>Home price ($)<input inputmode="numeric" data-k="pv" value="350000"></label><label>Down payment ($)<input inputmode="numeric" data-k="dn" value="35000"></label>
+<label>Interest rate (%)<input inputmode="decimal" data-k="ir" value="6.5"></label><label>Term (years)<input inputmode="numeric" data-k="yr" value="30"></label>
+<label style="grid-column:1/-1">Property tax &amp; insurance (annual $)<input inputmode="numeric" data-k="pt" value="4800"></label></div>
+<div class="calc-out"><span>Estimated monthly payment</span><strong id="calc-pay">$0</strong></div></div>
+</div></section>
+<script>(function(){var c=document.getElementById('calc');if(!c)return;function n(k){return parseFloat((c.querySelector('[data-k='+k+']').value||'0').replace(/[^0-9.]/g,''))||0}
+function go(){var P=Math.max(n('pv')-n('dn'),0),r=n('ir')/1200,m=n('yr')*12,pi=m?(r?P*r/(1-Math.pow(1+r,-m)):P/m):0,t=pi+n('pt')/12;document.getElementById('calc-pay').textContent='$'+Math.round(t).toLocaleString();}
+c.addEventListener('input',go);go();})();</script>
 
 <section class="ach"><div class="wrap">
   <h2 class="rw center">My Credentials &amp; Designations</h2>
